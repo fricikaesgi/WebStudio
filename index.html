@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Jasa Pembuatan Website — Profesional & Interaktif</title>
+<title>Jasa Pembuatan Website — Profesional & Cepat</title>
+<meta name="description" content="Jasa pembuatan website profesional: desain modern, responsif, SEO friendly, dan cepat live. Hubungi +62 838-0529-9567" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dYbIkf5/2pQfjNjm2yTSa7D6XefqNfA+8rD+6WxQmExG2EN6k0Z/Em3dBdfk7lXhH+30mD7MyPRiIp69Nl6F9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 :root{
   --bg: linear-gradient(180deg,#0f172a 0%, #071126 100%);
@@ -24,7 +25,6 @@ body{
 }
 .container{max-width:1200px;margin:0 auto;padding:24px}
 
-/* Header */
 header{
   position:sticky;top:12px;z-index:100;
   backdrop-filter:blur(8px);
@@ -38,15 +38,8 @@ header{
 nav{display:flex;gap:24px;align-items:center;transition:all .3s ease-in-out}
 nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px;transition:color .3s}
 nav a:hover{color:#fff}
-.cta-btn, .btn-primary{
-  background:var(--accent-1);padding:12px 18px;border-radius:12px;color:#021;font-weight:700;text-decoration:none;
-  transition:all .3s ease;
-  display:inline-block;
-}
-.cta-btn:hover, .btn-primary:hover{
-  transform:scale(1.05);
-  box-shadow:0 8px 20px rgba(124,58,237,0.5);
-}
+.cta-btn{background:var(--accent-1);padding:12px 18px;border-radius:12px;color:#021;font-weight:700;text-decoration:none;transition:opacity .3s}
+.cta-btn:hover{opacity:.85}
 
 /* Hamburger */
 .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:102}
@@ -63,120 +56,61 @@ nav a:hover{color:#fff}
 /* Hero */
 .hero{display:flex;align-items:center;justify-content:space-between;gap:60px;padding:100px 0;flex-wrap:wrap;position:relative;overflow:hidden}
 .hero-left{flex:1;min-width:320px;z-index:2}
-.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1}
 .eyebrow{display:inline-block;background:linear-gradient(90deg,#0ea5e9,#7c3aed);color:#001;padding:8px 14px;border-radius:999px;font-weight:700;margin-bottom:20px}
 h2{font-size:48px;line-height:1.1;margin-bottom:16px}
 p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px}
+.btn-primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);padding:14px 20px;border-radius:12px;font-weight:800;border:none;cursor:pointer;text-decoration:none;color:#021;transition:opacity .3s}
+.btn-primary:hover{opacity:.85}
 .btn-outline{background:transparent;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-weight:700;text-decoration:none;transition:all .3s}
 .btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
 
-.mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease;position:relative}
+.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1}
+.mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease}
 
-/* Sections */
 section{padding:80px 0}
 section h3{text-align:center;font-size:30px;margin-bottom:40px}
+.features,.testimonials{display:grid;gap:24px}
+.features{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.testimonials{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card,.test{background:var(--card);padding:28px;border-radius:16px;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(2,6,23,0.4);display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .6s ease,opacity .6s ease}
+.card i{font-size:32px;margin-bottom:14px;color:#06b6d4}
 
-/* Features Grid (4 kolom) */
-.features{
-  display:grid;
-  gap:24px;
-  grid-template-columns:repeat(4,1fr);
-  justify-items:center;
-  align-items:start;
+/* Horizontal scroll mobile ala Framer */
+@media(max-width:768px){
+  .features, .testimonials{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .features::-webkit-scrollbar, .testimonials::-webkit-scrollbar{
+    display: none;
+  }
+  .features .card, .testimonials .test{
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    margin-right:16px;
+  }
+  h2{font-size:34px}.hero{padding:80px 0;text-align:center}.hero-right{order:-1;margin-bottom:30px}
 }
-.card{
-  background:var(--card);
-  padding:24px;
-  border-radius:16px;
-  backdrop-filter:blur(8px);
-  box-shadow:0 6px 18px rgba(2,6,23,0.4);
-  width:100%;
-  min-height:180px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  cursor:pointer;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.card i{
-  font-size:40px;
-  color:#06b6d4;
-  animation:float 3s ease-in-out infinite;
-  transition:transform .4s ease, color .4s ease, text-shadow .4s ease;
-  margin-bottom:12px;
-}
-.card:hover i{
-  transform:scale(1.4) rotate(-15deg);
-  color:#7c3aed;
-  text-shadow:0 8px 20px rgba(124,58,237,0.6);
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(124,58,237,0.5);
-}
-.card h4{margin-bottom:8px;font-size:18px;font-weight:700}
-.card p{color:var(--muted);font-size:14px}
-
-/* Float keyframes */
-@keyframes float{
-  0%,100%{transform: translateY(0px)}
-  50%{transform: translateY(-10px)}
-}
-
-/* Testimonials */
-.testimonials{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.test{background:var(--card);padding:28px;border-radius:16px;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(2,6,23,0.4);transition:transform .5s ease,box-shadow .5s ease;text-align:center;cursor:pointer}
-.test:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(124,58,237,0.5)}
 
 /* Footer CTA */
 .footer-cta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:40px;border-radius:16px;background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06));margin-top:60px;text-align:center}
 
-/* WhatsApp FAB */
-.whatsapp-fab{
-  position:fixed;right:18px;bottom:18px;
-  background:#25D366;
-  border-radius:999px;
-  padding:14px 16px;
-  color:#fff;font-weight:700;
-  box-shadow:0 8px 30px rgba(0,128,0,0.5);
-  display:flex;gap:8px;align-items:center;text-decoration:none;z-index:120;
-  transition:all .3s ease;
-  animation:fabFloat 2.5s ease-in-out infinite;
-}
-.whatsapp-fab:hover{
-  transform:scale(1.1);
-  box-shadow:0 12px 35px rgba(0,128,0,0.6);
-}
-@keyframes fabFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
+/* Phone FAB */
+.phone-fab{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#06b6d4,#7c3aed);border-radius:999px;padding:14px 16px;color:#021;font-weight:800;box-shadow:0 8px 30px rgba(2,6,23,0.5);display:flex;gap:8px;align-items:center;text-decoration:none;z-index:120;transition:opacity .3s}
+.phone-fab:hover{opacity:.9}
 
-/* Mobile & horizontal scroll */
-@media(max-width:1024px){
-  .features{
-    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
-  }
-  .features::-webkit-scrollbar{display:none;}
-  .card{flex:0 0 60%;scroll-snap-align:start;margin-right:16px;}
-
-  .testimonials{
-    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-  }
-  .testimonials::-webkit-scrollbar{display:none;}
-  .test{flex:0 0 70%;scroll-snap-align:start;margin-right:16px;}
-
-  h2{font-size:34px}
-}
-
-/* Reveal animation & staggered */
+/* Reveal animation */
 .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 </style>
 </head>
 <body>
+
 <div class="overlay" id="overlay"></div>
 <header class="container">
   <div class="brand">
@@ -194,19 +128,18 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   <nav id="navMenu">
     <a href="#services">Layanan</a>
     <a href="#testi">Testimoni</a>
-    <a class="cta-btn" href="https://wa.me/6283805299567" target="_blank">Hubungi Kami</a>
+    <a class="cta-btn" href="tel:+6283805299567">Hubungi Kami</a>
   </nav>
 </header>
 
 <main class="container">
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-left reveal">
+    <div class="hero-left reveal" id="heroLeft">
       <div class="eyebrow">Website yang Menghasilkan</div>
       <h2>Bangun Website Profesional untuk Bisnis Anda</h2>
       <p class="lead">Kami membantu UMKM dan brand tampil modern dan dipercaya pelanggan melalui desain web yang menarik, cepat, dan responsif di semua perangkat.</p>
       <div class="hero-cta">
-        <a class="btn-primary" href="https://wa.me/6283805299567" target="_blank">Hubungi Sekarang</a>
+        <a class="btn-primary" href="tel:+6283805299567">Hubungi Sekarang</a>
         <a class="btn-outline" href="#services">Lihat Layanan</a>
       </div>
     </div>
@@ -215,51 +148,43 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
     </div>
   </section>
 
-  <!-- Layanan -->
   <section id="services">
     <h3>Layanan Kami</h3>
     <div class="features">
-      <div class="card reveal" style="transition-delay:0s"><i class="fas fa-globe"></i><h4>Desain Custom</h4><p>Tampilan unik sesuai identitas bisnis Anda untuk menarik perhatian pelanggan.</p></div>
-      <div class="card reveal" style="transition-delay:0.1s"><i class="fas fa-mobile-alt"></i><h4>Landing Page</h4><p>Website satu halaman efektif untuk promosi dan konversi cepat.</p></div>
-      <div class="card reveal" style="transition-delay:0.2s"><i class="fas fa-shopping-cart"></i><h4>Toko Online</h4><p>Solusi e-commerce lengkap dengan sistem pembayaran dan dashboard mudah digunakan.</p></div>
-      <div class="card reveal" style="transition-delay:0.3s"><i class="fas fa-rocket"></i><h4>SEO & Optimasi</h4><p>Optimasi performa agar website cepat diakses dan mudah ditemukan di Google.</p></div>
+      <div class="card reveal"><i class="fas fa-globe"></i><h4>Desain Custom</h4><p>Tampilan unik sesuai identitas bisnis Anda.</p></div>
+      <div class="card reveal"><i class="fas fa-mobile-alt"></i><h4>Landing Page</h4><p>Website satu halaman efektif untuk promosi.</p></div>
+      <div class="card reveal"><i class="fas fa-shopping-cart"></i><h4>Toko Online</h4><p>Solusi e-commerce lengkap dengan dashboard mudah.</p></div>
+      <div class="card reveal"><i class="fas fa-rocket"></i><h4>SEO & Optimasi</h4><p>Optimasi performa agar website cepat ditemukan Google.</p></div>
     </div>
   </section>
 
-  <!-- Testimoni -->
   <section id="testi">
     <h3>Apa Kata Klien Kami</h3>
     <div class="testimonials">
-      <div class="test reveal" style="transition-delay:0s"><strong>Arief</strong><p>“Website kami tampil profesional, pesanan naik 30%.”</p></div>
-      <div class="test reveal" style="transition-delay:0.1s"><strong>Sinta</strong><p>“Proses cepat, hasil sesuai ekspektasi, dan komunikatif.”</p></div>
-      <div class="test reveal" style="transition-delay:0.2s"><strong>Rudi</strong><p>“Desain clean dan mudah dikelola, sangat direkomendasikan.”</p></div>
+      <div class="test reveal"><strong>Arief</strong><p>“Website kami tampil profesional, pesanan naik 30%.”</p></div>
+      <div class="test reveal"><strong>Sinta</strong><p>“Proses cepat, hasil sesuai ekspektasi, dan komunikatif.”</p></div>
+      <div class="test reveal"><strong>Rudi</strong><p>“Desain clean dan mudah dikelola, sangat direkomendasikan.”</p></div>
     </div>
   </section>
 
-  <!-- Footer CTA -->
-  <div class="footer-cta reveal" style="transition-delay:0.1s">
+  <div class="footer-cta reveal">
     <div>
       <h3>Ingin Website Seperti Ini?</h3>
       <p>Kami siap bantu bangun website impian Anda. Gratis konsultasi!</p>
     </div>
     <div>
-      <a class="btn-primary" href="https://wa.me/6283805299567" target="_blank">Hubungi Sekarang</a>
+      <a class="btn-primary" href="tel:+6283805299567">Hubungi Sekarang</a>
     </div>
   </div>
 </main>
 
-<!-- WhatsApp Floating -->
-<a class="whatsapp-fab" href="https://wa.me/6283805299567" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a class="phone-fab" href="tel:+6283805299567">📞 Hubungi Kami</a>
 
 <script>
-// Reveal animation with stagger
+// Reveal animation
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.15});
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 // Hamburger menu
@@ -277,15 +202,17 @@ overlay.addEventListener('click',()=>{
   overlay.classList.remove('show');
 });
 
-// Parallax hero
-const heroRightEl=document.getElementById('heroRight');
-const mockEl=document.querySelector('.mock');
+// Parallax ringan
+const heroRight=document.getElementById('heroRight');
+const featureCards=document.querySelectorAll('.features .card');
 window.addEventListener('scroll',()=>{
   const scrollY=window.scrollY;
-  if(heroRightEl){
-    heroRightEl.style.transform=`translateY(${scrollY*0.04}px)`;
-    mockEl.querySelector('img').style.transform=`translateY(${scrollY*0.08}px)`;
+  if(heroRight){
+    heroRight.style.transform=`translateY(${scrollY*0.05}px)`;
   }
+  featureCards.forEach((card)=>{
+    card.style.transform=`translateY(${scrollY*0.03}px)`;
+  });
 });
 </script>
 </body>
