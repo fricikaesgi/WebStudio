@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jasa Pembuatan Website — Interaktif & Alive</title>
+<title>Jasa Pembuatan Website — Alive ala Framer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -98,7 +98,7 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   align-items:center;
   text-align:center;
   cursor:pointer;
-  transition:transform .3s ease, box-shadow .3s ease;
+  transition:transform .4s ease, box-shadow .4s ease;
   opacity:0;
   transform:translateY(20px);
 }
@@ -106,15 +106,20 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   font-size:40px;
   color:#06b6d4;
   margin-bottom:12px;
-  transition:transform .4s ease, color .4s ease, text-shadow .4s ease;
+  transition:transform .6s ease, color .4s ease, text-shadow .4s ease;
+  animation:iconFloat 3s ease-in-out infinite;
 }
 .card:hover i{
   transform:scale(1.4) rotate(-15deg);
   color:#7c3aed;
   text-shadow:0 8px 20px rgba(124,58,237,0.6);
 }
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
   box-shadow:0 12px 30px rgba(124,58,237,0.5);
 }
 .card h4{margin-bottom:8px;font-size:18px;font-weight:700}
@@ -164,13 +169,13 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
     display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
   }
   .features::-webkit-scrollbar{display:none;}
-  .card{flex:0 0 60%;scroll-snap-align:start;margin-right:16px;}
+  .card{flex:0 0 70%;scroll-snap-align:center;margin-right:16px;}
 
   .testimonials{
     display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
   }
   .testimonials::-webkit-scrollbar{display:none;}
-  .test{flex:0 0 70%;scroll-snap-align:start;margin-right:16px;}
+  .test{flex:0 0 80%;scroll-snap-align:center;margin-right:16px;}
 
   h2{font-size:34px;text-align:center}
   .hero{flex-direction:column;text-align:center}
@@ -215,7 +220,7 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
         <a class="btn-outline" href="#services">Lihat Layanan</a>
       </div>
     </div>
-    <div class="hero-right reveal" id="heroRight">
+    <div class="hero-right reveal">
       <div class="mock"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="mockup website" style="width:100%;border-radius:16px;"></div>
     </div>
   </section>
@@ -257,7 +262,7 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
 <a class="whatsapp-fab" href="https://wa.me/6283805299567" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-// Reveal animation with stagger & float
+// Reveal animation with stagger & micro float
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -280,17 +285,6 @@ overlay.addEventListener('click',()=>{
   navMenu.classList.remove('open');
   menuToggle.classList.remove('active');
   overlay.classList.remove('show');
-});
-
-// Parallax hero
-const heroRightEl=document.getElementById('heroRight');
-const mockEl=document.querySelector('.mock');
-window.addEventListener('scroll',()=>{
-  const scrollY=window.scrollY;
-  if(heroRightEl){
-    heroRightEl.style.transform=`translateY(${scrollY*0.04}px)`;
-    mockEl.querySelector('img').style.transform=`translateY(${scrollY*0.08}px)`;
-  }
 });
 </script>
 </body>
