@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jasa Pembuatan Website — Alive ala Framer</title>
+<title>Jasa Pembuatan Website — Alive ala Framer Motion</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -62,8 +62,10 @@ nav a:hover{color:#fff}
 
 /* Hero */
 .hero{display:flex;align-items:center;justify-content:space-between;gap:60px;padding:100px 0;flex-wrap:wrap;position:relative;overflow:hidden}
-.hero-left{flex:1;min-width:320px;z-index:2}
-.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1}
+.hero-left{flex:1;min-width:320px;z-index:2;opacity:0;transform:translateY(20px);transition:all .6s ease;}
+.hero-left.visible{opacity:1;transform:translateY(0);}
+.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1;opacity:0;transform:translateY(20px);transition:all .6s ease;}
+.hero-right.visible{opacity:1;transform:translateY(0);}
 .eyebrow{display:inline-block;background:linear-gradient(90deg,#0ea5e9,#7c3aed);color:#001;padding:8px 14px;border-radius:999px;font-weight:700;margin-bottom:20px}
 h2{font-size:48px;line-height:1.1;margin-bottom:16px}
 p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
@@ -72,10 +74,6 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
 .btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
 
 .mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease;position:relative}
-
-/* Sections */
-section{padding:80px 0}
-section h3{text-align:center;font-size:30px;margin-bottom:40px}
 
 /* Features Grid 4 kolom */
 .features{
@@ -107,16 +105,11 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   color:#06b6d4;
   margin-bottom:12px;
   transition:transform .6s ease, color .4s ease, text-shadow .4s ease;
-  animation:iconFloat 3s ease-in-out infinite;
 }
 .card:hover i{
   transform:scale(1.4) rotate(-15deg);
   color:#7c3aed;
   text-shadow:0 8px 20px rgba(124,58,237,0.6);
-}
-@keyframes iconFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
 }
 .card:hover{
   transform:translateY(-8px);
@@ -181,9 +174,6 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   .hero{flex-direction:column;text-align:center}
   .hero-right{order:-1;margin-bottom:30px}
 }
-
-/* Reveal animation class */
-.reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -210,7 +200,7 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
 
 <main class="container">
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-left reveal">
       <div class="eyebrow">Website yang Menghasilkan</div>
       <h2>Bangun Website Profesional untuk Bisnis Anda</h2>
@@ -285,6 +275,13 @@ overlay.addEventListener('click',()=>{
   navMenu.classList.remove('open');
   menuToggle.classList.remove('active');
   overlay.classList.remove('show');
+});
+
+// Parallax hero micro
+const heroBg=document.querySelector('.hero');
+window.addEventListener('scroll',()=>{
+  const offset = window.scrollY;
+  heroBg.style.transform=`translateY(${offset * 0.03}px)`; // sangat lembut
 });
 </script>
 </body>
