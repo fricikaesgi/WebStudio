@@ -60,24 +60,35 @@ nav a:hover{color:#fff}
 h2{font-size:48px;line-height:1.1;margin-bottom:16px}
 p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px}
-.btn-primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);padding:14px 20px;border-radius:12px;font-weight:800;border:none;cursor:pointer;text-decoration:none;color:#021;transition:opacity .3s}
-.btn-primary:hover{opacity:.85}
+.btn-primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);padding:14px 20px;border-radius:12px;font-weight:800;border:none;cursor:pointer;text-decoration:none;color:#021;transition:all .3s}
+.btn-primary:hover{opacity:.85;transform:translateY(-2px)}
 .btn-outline{background:transparent;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-weight:700;text-decoration:none;transition:all .3s}
-.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
+.btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.3);transform:translateY(-2px)}
 
 .hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1}
 .mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease}
 
+/* Sections */
 section{padding:80px 0}
 section h3{text-align:center;font-size:30px;margin-bottom:40px}
 .features,.testimonials{display:grid;gap:24px}
-.features{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.features{grid-template-columns:repeat(4,1fr)}
 .testimonials{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .card,.test{background:var(--card);padding:28px;border-radius:16px;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(2,6,23,0.4);display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .6s ease,opacity .6s ease}
-.card i{font-size:32px;margin-bottom:14px;color:#06b6d4}
+.card i{font-size:32px;margin-bottom:14px;color:#06b6d4;transition:transform .3s}
+.card:hover i{transform:scale(1.2) rotate(10deg)}
+.card:hover{transform:translateY(-6px)}
+.test:hover{transform:translateY(-4px)}
 
-/* Horizontal scroll mobile ala Framer */
+@media(max-width:1024px){
+  .features{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:768px){
+  nav{display:flex;flex-direction:column;gap:16px;position:absolute;top:80px;right:-300px;background:rgba(0,0,0,0.9);padding:24px 32px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.4);opacity:0;pointer-events:none;transform:translateX(100%);transition:transform .4s ease,opacity .4s ease,right .4s ease;z-index:101}
+  nav.open{right:20px;opacity:1;pointer-events:auto;transform:translateX(0)}
+  .menu-toggle{display:flex}
+
+  /* Horizontal scroll */
   .features, .testimonials{
     display:flex;
     overflow-x:auto;
@@ -86,23 +97,17 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .features::-webkit-scrollbar, .testimonials::-webkit-scrollbar{
-    display: none;
-  }
-  .features .card, .testimonials .test{
-    flex: 0 0 85%;
-    scroll-snap-align: start;
-    margin-right:16px;
-  }
+  .features::-webkit-scrollbar, .testimonials::-webkit-scrollbar{display: none}
+  .features .card, .testimonials .test{flex:0 0 80%; scroll-snap-align:start; margin-right:16px}
   h2{font-size:34px}.hero{padding:80px 0;text-align:center}.hero-right{order:-1;margin-bottom:30px}
 }
 
 /* Footer CTA */
 .footer-cta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:40px;border-radius:16px;background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06));margin-top:60px;text-align:center}
 
-/* Phone FAB */
-.phone-fab{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#06b6d4,#7c3aed);border-radius:999px;padding:14px 16px;color:#021;font-weight:800;box-shadow:0 8px 30px rgba(2,6,23,0.5);display:flex;gap:8px;align-items:center;text-decoration:none;z-index:120;transition:opacity .3s}
-.phone-fab:hover{opacity:.9}
+/* WhatsApp floating button */
+.phone-fab{position:fixed;right:18px;bottom:18px;background:#25D366;border-radius:999px;padding:14px 16px;color:#fff;font-weight:800;box-shadow:0 8px 30px rgba(2,6,23,0.5);display:flex;gap:8px;align-items:center;text-decoration:none;z-index:120;transition:transform .3s}
+.phone-fab:hover{transform:translateY(-4px) scale(1.05)}
 
 /* Reveal animation */
 .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
@@ -128,22 +133,22 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
   <nav id="navMenu">
     <a href="#services">Layanan</a>
     <a href="#testi">Testimoni</a>
-    <a class="cta-btn" href="tel:+6283805299567">Hubungi Kami</a>
+    <a class="cta-btn" href="https://wa.me/6283805299567" target="_blank">Hubungi Kami</a>
   </nav>
 </header>
 
 <main class="container">
   <section class="hero">
-    <div class="hero-left reveal" id="heroLeft">
+    <div class="hero-left reveal">
       <div class="eyebrow">Website yang Menghasilkan</div>
       <h2>Bangun Website Profesional untuk Bisnis Anda</h2>
       <p class="lead">Kami membantu UMKM dan brand tampil modern dan dipercaya pelanggan melalui desain web yang menarik, cepat, dan responsif di semua perangkat.</p>
       <div class="hero-cta">
-        <a class="btn-primary" href="tel:+6283805299567">Hubungi Sekarang</a>
+        <a class="btn-primary" href="https://wa.me/6283805299567" target="_blank">Hubungi Sekarang</a>
         <a class="btn-outline" href="#services">Lihat Layanan</a>
       </div>
     </div>
-    <div class="hero-right reveal" id="heroRight">
+    <div class="hero-right reveal">
       <div class="mock"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="mockup website" style="width:100%;border-radius:16px;" /></div>
     </div>
   </section>
@@ -173,19 +178,19 @@ section h3{text-align:center;font-size:30px;margin-bottom:40px}
       <p>Kami siap bantu bangun website impian Anda. Gratis konsultasi!</p>
     </div>
     <div>
-      <a class="btn-primary" href="tel:+6283805299567">Hubungi Sekarang</a>
+      <a class="btn-primary" href="https://wa.me/6283805299567" target="_blank">Hubungi Sekarang</a>
     </div>
   </div>
 </main>
 
-<a class="phone-fab" href="tel:+6283805299567">📞 Hubungi Kami</a>
+<a class="phone-fab" href="https://wa.me/6283805299567" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
 // Reveal animation
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  entries.forEach((e,i)=>{if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${i*0.15}s`; observer.observe(el)});
 
 // Hamburger menu
 const menuToggle=document.getElementById('menuToggle');
@@ -202,17 +207,24 @@ overlay.addEventListener('click',()=>{
   overlay.classList.remove('show');
 });
 
-// Parallax ringan
-const heroRight=document.getElementById('heroRight');
-const featureCards=document.querySelectorAll('.features .card');
+// Micro floating animation
+const floatElements=[...document.querySelectorAll('.mock,.card,.test,.phone-fab')];
+floatElements.forEach(el=>{
+  let direction=1, offset=0;
+  const animate=()=>{
+    offset+=0.2*direction;
+    if(offset>3 || offset<-3) direction*=-1;
+    el.style.transform+=` translateY(${offset}px)`;
+    requestAnimationFrame(animate);
+  };
+  requestAnimationFrame(animate);
+});
+
+// Parallax hero
+const heroRight=document.querySelector('.hero-right');
 window.addEventListener('scroll',()=>{
   const scrollY=window.scrollY;
-  if(heroRight){
-    heroRight.style.transform=`translateY(${scrollY*0.05}px)`;
-  }
-  featureCards.forEach((card)=>{
-    card.style.transform=`translateY(${scrollY*0.03}px)`;
-  });
+  if(heroRight) heroRight.style.transform=`translateY(${scrollY*0.03}px)`;
 });
 </script>
 </body>
