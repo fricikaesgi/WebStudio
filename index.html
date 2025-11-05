@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jasa Pembuatan Website — Alive & Framer-like</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jasa Pembuatan Website — Profesional & Interaktif</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -13,19 +13,24 @@
   --muted: rgba(255,255,255,0.72);
   --card: rgba(255,255,255,0.04);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica Neue,Arial;
-  background:var(--bg);color:#fff;line-height:1.6;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:var(--bg);
+  color:#fff;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
-.container{max-width:1200px;margin:0 auto;padding:24px;}
+.container{max-width:1200px;margin:0 auto;padding:24px}
 
 /* Header */
 header{
   position:sticky;top:12px;z-index:100;
-  backdrop-filter:blur(8px);background:rgba(255,255,255,0.04);
-  border-radius:999px;margin:0 16px;padding:12px 20px;
+  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.04);
+  border-radius:999px;
+  margin:0 16px;padding:12px 20px;
   display:flex;align-items:center;justify-content:space-between;
 }
 .brand{display:flex;gap:10px;align-items:center}
@@ -35,9 +40,13 @@ nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px;tra
 nav a:hover{color:#fff}
 .cta-btn, .btn-primary{
   background:var(--accent-1);padding:12px 18px;border-radius:12px;color:#021;font-weight:700;text-decoration:none;
-  transition:all .3s ease;display:inline-block;
+  transition:all .3s ease;
+  display:inline-block;
 }
-.cta-btn:hover, .btn-primary:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(124,58,237,0.5);}
+.cta-btn:hover, .btn-primary:hover{
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(124,58,237,0.5);
+}
 
 /* Hamburger */
 .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:102}
@@ -47,18 +56,14 @@ nav a:hover{color:#fff}
 .menu-toggle.active .bar:nth-child(3){transform:rotate(-45deg) translateY(-8px)}
 
 .overlay{
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);
-  opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;z-index:100;
+  position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;z-index:100;
 }
 .overlay.show{opacity:1;visibility:visible}
 
 /* Hero */
 .hero{display:flex;align-items:center;justify-content:space-between;gap:60px;padding:100px 0;flex-wrap:wrap;position:relative;overflow:hidden}
-.hero-left{flex:1;min-width:320px;z-index:2;text-align:left;opacity:0;transform:translateY(20px);transition:all .6s ease;}
-.hero-left.visible{opacity:1;transform:translateY(0);}
-.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1;opacity:0;transform:translateY(20px);transition:all .6s ease;}
-.hero-right.visible{opacity:1;transform:translateY(0);}
+.hero-left{flex:1;min-width:320px;z-index:2}
+.hero-right{flex:1;display:grid;place-items:center;min-width:320px;position:relative;z-index:1}
 .eyebrow{display:inline-block;background:linear-gradient(90deg,#0ea5e9,#7c3aed);color:#001;padding:8px 14px;border-radius:999px;font-weight:700;margin-bottom:20px}
 h2{font-size:48px;line-height:1.1;margin-bottom:16px}
 p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
@@ -66,16 +71,19 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
 .btn-outline{background:transparent;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-weight:700;text-decoration:none;transition:all .3s}
 .btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
 
-.mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease;position:relative;}
+.mock{width:100%;max-width:560px;border-radius:24px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .6s ease,opacity .6s ease;position:relative}
 
-/* Features Grid 4 kolom */
+/* Sections */
+section{padding:80px 0}
+section h3{text-align:center;font-size:30px;margin-bottom:40px}
+
+/* Features Grid (4 kolom) */
 .features{
   display:grid;
   gap:24px;
   grid-template-columns:repeat(4,1fr);
   justify-items:center;
   align-items:start;
-  margin-top:40px;
 }
 .card{
   background:var(--card);
@@ -90,63 +98,86 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
   align-items:center;
   text-align:center;
   cursor:pointer;
-  transition:transform .4s ease, box-shadow .4s ease, opacity .6s ease;
-  opacity:0;
-  transform:translateY(20px);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
 .card i{
-  font-size:40px;color:#06b6d4;margin-bottom:12px;transition:transform .6s ease, color .4s ease,text-shadow .4s ease;
+  font-size:40px;
+  color:#06b6d4;
+  animation:float 3s ease-in-out infinite;
+  transition:transform .4s ease, color .4s ease, text-shadow .4s ease;
+  margin-bottom:12px;
 }
-.card:hover i{transform:scale(1.4) rotate(-15deg);color:#7c3aed;text-shadow:0 8px 20px rgba(124,58,237,0.6);}
-.card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(124,58,237,0.5);}
+.card:hover i{
+  transform:scale(1.4) rotate(-15deg);
+  color:#7c3aed;
+  text-shadow:0 8px 20px rgba(124,58,237,0.6);
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(124,58,237,0.5);
+}
 .card h4{margin-bottom:8px;font-size:18px;font-weight:700}
 .card p{color:var(--muted);font-size:14px}
 
-/* Testimonials */
-.testimonials{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:40px}
-.test{
-  background:var(--card);padding:28px;border-radius:16px;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(2,6,23,0.4);
-  transition:transform .5s ease,box-shadow .5s ease,opacity .6s ease;
-  text-align:center;cursor:pointer;
-  opacity:0;transform:translateY(20px);
+/* Float keyframes */
+@keyframes float{
+  0%,100%{transform: translateY(0px)}
+  50%{transform: translateY(-10px)}
 }
+
+/* Testimonials */
+.testimonials{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.test{background:var(--card);padding:28px;border-radius:16px;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(2,6,23,0.4);transition:transform .5s ease,box-shadow .5s ease;text-align:center;cursor:pointer}
 .test:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(124,58,237,0.5)}
 
 /* Footer CTA */
-.footer-cta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:40px;border-radius:16px;background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06));margin-top:60px;text-align:center;opacity:0;transform:translateY(20px);transition:all .6s ease}
+.footer-cta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:40px;border-radius:16px;background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06));margin-top:60px;text-align:center}
 
 /* WhatsApp FAB */
 .whatsapp-fab{
-  position:fixed;right:18px;bottom:18px;background:#25D366;border-radius:999px;
-  padding:14px 16px;color:#fff;font-weight:700;box-shadow:0 8px 30px rgba(0,128,0,0.5);
+  position:fixed;right:18px;bottom:18px;
+  background:#25D366;
+  border-radius:999px;
+  padding:14px 16px;
+  color:#fff;font-weight:700;
+  box-shadow:0 8px 30px rgba(0,128,0,0.5);
   display:flex;gap:8px;align-items:center;text-decoration:none;z-index:120;
-  transition:all .3s ease;animation:fabFloat 2.5s ease-in-out infinite;
+  transition:all .3s ease;
+  animation:fabFloat 2.5s ease-in-out infinite;
 }
-.whatsapp-fab:hover{transform:scale(1.1);box-shadow:0 12px 35px rgba(0,128,0,0.6);}
-@keyframes fabFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.whatsapp-fab:hover{
+  transform:scale(1.1);
+  box-shadow:0 12px 35px rgba(0,128,0,0.6);
+}
+@keyframes fabFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
 
-/* Mobile & Horizontal Scroll */
+/* Mobile & horizontal scroll */
 @media(max-width:1024px){
-  nav{position:absolute;top:80px;right:-300px;background:rgba(0,0,0,0.9);padding:24px 32px;border-radius:16px;opacity:0;pointer-events:none;transform:translateX(100%);transition:all .4s ease;z-index:101;flex-direction:column;gap:16px;}
-  nav.open{right:20px;opacity:1;pointer-events:auto;transform:translateX(0)}
-  .menu-toggle{display:flex}
+  .features{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .features::-webkit-scrollbar{display:none;}
+  .card{flex:0 0 60%;scroll-snap-align:start;margin-right:16px;}
 
-  .features,.testimonials{
+  .testimonials{
     display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
   }
-  .features::-webkit-scrollbar,.testimonials::-webkit-scrollbar{display:none;}
-  .card{flex:0 0 70%;scroll-snap-align:center;margin-right:16px;}
-  .test{flex:0 0 80%;scroll-snap-align:center;margin-right:16px;}
+  .testimonials::-webkit-scrollbar{display:none;}
+  .test{flex:0 0 70%;scroll-snap-align:start;margin-right:16px;}
 
-  h2{font-size:34px;text-align:center}
-  .hero{flex-direction:column;text-align:center}
-  .hero-right{order:-1;margin-bottom:30px}
+  h2{font-size:34px}
 }
+
+/* Reveal animation & staggered */
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
 </style>
 </head>
 <body>
 <div class="overlay" id="overlay"></div>
-
 <header class="container">
   <div class="brand">
     <div class="logo">WS</div>
@@ -168,6 +199,7 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
 </header>
 
 <main class="container">
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-left reveal">
       <div class="eyebrow">Website yang Menghasilkan</div>
@@ -178,11 +210,12 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
         <a class="btn-outline" href="#services">Lihat Layanan</a>
       </div>
     </div>
-    <div class="hero-right reveal">
-      <div class="mock"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="mockup website" style="width:100%;border-radius:16px;"></div>
+    <div class="hero-right reveal" id="heroRight">
+      <div class="mock"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="mockup website" style="width:100%;border-radius:16px;" /></div>
     </div>
   </section>
 
+  <!-- Layanan -->
   <section id="services">
     <h3>Layanan Kami</h3>
     <div class="features">
@@ -193,6 +226,7 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
     </div>
   </section>
 
+  <!-- Testimoni -->
   <section id="testi">
     <h3>Apa Kata Klien Kami</h3>
     <div class="testimonials">
@@ -202,6 +236,7 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
     </div>
   </section>
 
+  <!-- Footer CTA -->
   <div class="footer-cta reveal" style="transition-delay:0.1s">
     <div>
       <h3>Ingin Website Seperti Ini?</h3>
@@ -213,16 +248,21 @@ p.lead{color:var(--muted);font-size:18px;margin-bottom:26px;max-width:540px}
   </div>
 </main>
 
+<!-- WhatsApp Floating -->
 <a class="whatsapp-fab" href="https://wa.me/6283805299567" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-// Reveal animation
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+// Reveal animation with stagger
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-// Hamburger
+// Hamburger menu
 const menuToggle=document.getElementById('menuToggle');
 const navMenu=document.getElementById('navMenu');
 const overlay=document.getElementById('overlay');
@@ -237,21 +277,15 @@ overlay.addEventListener('click',()=>{
   overlay.classList.remove('show');
 });
 
-// Micro float
-function floatAnimation(){
-  document.querySelectorAll('.mock, .card, .test').forEach(el=>{
-    const offset = Math.sin(Date.now()/800) * 4;
-    el.style.transform = `translateY(${offset}px)`;
-  });
-  requestAnimationFrame(floatAnimation);
-}
-floatAnimation();
-
-// Optional parallax hero
-const heroBg=document.querySelector('.hero');
+// Parallax hero
+const heroRightEl=document.getElementById('heroRight');
+const mockEl=document.querySelector('.mock');
 window.addEventListener('scroll',()=>{
-  const offset = window.scrollY;
-  heroBg.style.transform=`translateY(${offset * 0.02}px)`;
+  const scrollY=window.scrollY;
+  if(heroRightEl){
+    heroRightEl.style.transform=`translateY(${scrollY*0.04}px)`;
+    mockEl.querySelector('img').style.transform=`translateY(${scrollY*0.08}px)`;
+  }
 });
 </script>
 </body>
